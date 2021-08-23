@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(77, 11, 11);
+}
+.container{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+.container .face{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transition: 2s ease-in-out;
+    transform: perspective(500px) rotateY(0deg);
+    box-shadow: 0 0 10px #111;
+}
+.container .face.front{
+    background-image: url(photo_2021-06-27_20-34-34.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container:hover .face.front{
+    transform: perspective(500px) rotateY(180deg);
+}
+.container .face.front h2{
+    font-size: 14px;
+    text-transform: uppercase;
+    transform: translateY(170px) translateX(40px) perspective(500px) translateZ(50px);
+    color: #fff;
+}
+.container .face.back{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background: #071c25;
+    color: #fff;
+    transform: perspective(500px) rotateY(180deg);
+}
+.container:hover .face.back{
+    transform: perspective(500px) rotateY(360deg);
+}
+.face.back p,
+.face.back i{
+    transform: perspective(500px) translateZ(50px);
+}
+.email p{
+    transform: translateY(-60px);
+    font-size: 16px;
+}
+.icons i{
+    margin: 0 16px;
+    font-size: 24px;
+}
